@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Lisa, Hasianku</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fff0f3, #fce4ec, #f8dce8);
+    font-family: 'Quicksand', sans-serif;
+    color: #634b54;
+}
+
+/* Background */
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,.3);
+    border-radius: 50%;
+    filter: blur(50px);
+    animation: drift 10s infinite alternate ease-in-out;
+}
+
+.orb.one {
+    top: -100px;
+    left: -80px;
+}
+
+.orb.two {
+    bottom: -100px;
+    right: -80px;
+    animation-delay: 2s;
+}
+
+@keyframes drift {
+    to { transform: translate(60px, 40px) scale(1.2); }
+}
+
+/* Card */
+.card {
+    width: min(90%, 440px);
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 28px;
+    box-shadow: 0 20px 70px rgba(173, 91, 119, .12);
+    backdrop-filter: blur(15px);
+    animation: enter 1.2s ease;
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.top-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #c28a9e;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.flower {
+    font-size: 34px;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0%,100% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 8vw, 43px);
+    font-weight: 500;
+    color: #a95776;
+    margin-bottom: 12px;
+}
+
+h1 span {
+    font-style: italic;
+}
+
+.line {
+    width: 45px;
+    height: 2px;
+    background: #e8a6bb;
+    margin: 22px auto;
+}
+
+.message {
+    font-size: 14px;
+    line-height: 2;
+    color: #816b73;
+    margin: 0 auto 24px;
+}
+
+.main-love {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    font-style: italic;
+    color: #c45d82;
+    margin: 20px 0;
+    animation: softGlow 3s infinite;
+}
+
+@keyframes softGlow {
+    0%,100% { opacity: .8; }
+    50% { opacity: 1; }
+}
+
+button {
+    background: #bd718b;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 40px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: .3s;
+    box-shadow: 0 8px 20px rgba(189,113,139,.2);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background: #a95776;
+}
+
+#finalMessage {
+    display: none;
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid #f0d9e1;
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: #ad5979;
+    line-height: 1.8;
+    animation: reveal .9s ease;
+}
+
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #c5a0ad;
+}
+
+/* Floating petals */
+.petal {
+    position: fixed;
+    top: -30px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: .65;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translate3d(var(--drift), 110vh, 0) rotate(540deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width: 480px) {
+    .card {
+        padding: 40px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+</div>
+
+<main class="card">
+
+    <div class="top-label">A little something for you</div>
+
+    <div class="flower">🌷</div>
+
+    <h1>Untuk <span>Lisa</span></h1>
+
+    <div class="line"></div>
+
+    <p class="message">
+        Ada sesuatu yang ingin aku sampaikan.
+        Mungkin sederhana, tetapi cukup berarti
+        untuk akhirnya aku ungkapkan.
+        <br><br>
+        Aku senang bisa mengenalmu.
+        Ada hal-hal kecil tentang dirimu
+        yang tanpa sadar membuat hariku lebih menyenangkan.
+    </p>
+
+    <div class="main-love">
+        I have feelings for you.
+    </div>
+
+    <p class="message">
+        Dan sepertinya, sudah waktunya
+        aku mengatakan ini dengan jujur.
+    </p>
+
+    <button onclick="revealMessage()" id="loveButton">
+        Ada satu hal lagi...
+    </button>
+
+    <div id="finalMessage">
+        Lisa, aku cinta kamu.
+        <br>
+        — Hasianku ❤️
+    </div>
+
+    <div class="footer">
+        MADE WITH SINCERITY
+    </div>
+
+</main>
+
+<script>
+function revealMessage() {
+    const message = document.getElementById("finalMessage");
+    const button = document.getElementById("loveButton");
+
+    message.style.display = "block";
+    button.style.display = "none";
+
+    // Romantic falling petals
+    for (let i = 0; i < 35; i++) {
+        setTimeout(createPetal, i * 90);
+    }
+}
+
+function createPetal() {
+    const petal = document.createElement("div");
+    petal.className = "petal";
+    petal.innerHTML = ["🌸", "♡", "🌷", "♥"][
+        Math.floor(Math.random() * 4)
+    ];
+
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.fontSize = (12 + Math.random() * 16) + "px";
+    petal.style.setProperty("--drift",
+        (Math.random() * 180 - 90) + "px"
+    );
+    petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(() => petal.remove(), 10000);
+}
+
+// Subtle background animation
+setInterval(createPetal, 1300);
+</script>
+
+</body>
+</html>
